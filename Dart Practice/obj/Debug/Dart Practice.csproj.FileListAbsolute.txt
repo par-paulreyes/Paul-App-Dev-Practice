@@ -1,0 +1,10 @@
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\bin\Debug\Dart Practice.exe.config
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\bin\Debug\Dart Practice.exe
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\bin\Debug\Dart Practice.pdb
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart Practice.csproj.AssemblyReference.cache
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart_Practice.Properties.Resources.resources
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart Practice.csproj.GenerateResource.cache
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart Practice.csproj.CoreCompileInputs.cache
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart Practice.exe
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\Dart Practice.pdb
+C:\Users\PARPAUL\Pictures\App Dev\Dart Practice\obj\Debug\DartPracticeApp.Form1.resources
