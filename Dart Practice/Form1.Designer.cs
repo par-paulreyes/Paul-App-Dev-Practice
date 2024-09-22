@@ -17,13 +17,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtProblemDescription = new System.Windows.Forms.TextBox();
-            this.txtCodeInput = new System.Windows.Forms.TextBox();
             this.btnRunCode = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.comboBoxProblems = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCodeDisplay = new System.Windows.Forms.TextBox();
             this.btnShowCode = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -33,30 +31,22 @@
             this.txtScore = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtCodeInput = new System.Windows.Forms.RichTextBox();
+            this.txtCodeDisplay = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtProblemDescription
             // 
             this.txtProblemDescription.Enabled = false;
+            this.txtProblemDescription.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProblemDescription.Location = new System.Drawing.Point(15, 39);
             this.txtProblemDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProblemDescription.Multiline = true;
             this.txtProblemDescription.Name = "txtProblemDescription";
             this.txtProblemDescription.ReadOnly = true;
+            this.txtProblemDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtProblemDescription.Size = new System.Drawing.Size(454, 168);
             this.txtProblemDescription.TabIndex = 0;
-            // 
-            // txtCodeInput
-            // 
-            this.txtCodeInput.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodeInput.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtCodeInput.Location = new System.Drawing.Point(489, 52);
-            this.txtCodeInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodeInput.Multiline = true;
-            this.txtCodeInput.Name = "txtCodeInput";
-            this.txtCodeInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtCodeInput.Size = new System.Drawing.Size(760, 543);
-            this.txtCodeInput.TabIndex = 1;
             // 
             // btnRunCode
             // 
@@ -72,10 +62,12 @@
             // 
             // txtOutput
             // 
+            this.txtOutput.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutput.Location = new System.Drawing.Point(15, 528);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.ReadOnly = true;
             this.txtOutput.Size = new System.Drawing.Size(454, 125);
             this.txtOutput.TabIndex = 3;
@@ -96,7 +88,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(482, 614);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(472, 39);
+            this.label1.Size = new System.Drawing.Size(452, 38);
             this.label1.TabIndex = 5;
             this.label1.Text = "PAUL DART PRACTICE APP";
             // 
@@ -108,17 +100,6 @@
             this.label2.Size = new System.Drawing.Size(99, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Select Problem";
-            // 
-            // txtCodeDisplay
-            // 
-            this.txtCodeDisplay.Location = new System.Drawing.Point(15, 253);
-            this.txtCodeDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodeDisplay.Multiline = true;
-            this.txtCodeDisplay.Name = "txtCodeDisplay";
-            this.txtCodeDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtCodeDisplay.ReadOnly = true;
-            this.txtCodeDisplay.Size = new System.Drawing.Size(454, 234);
-            this.txtCodeDisplay.TabIndex = 7;
             // 
             // btnShowCode
             // 
@@ -208,12 +189,35 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Output";
             // 
+            // txtCodeInput
+            // 
+            this.txtCodeInput.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodeInput.Location = new System.Drawing.Point(489, 58);
+            this.txtCodeInput.Name = "txtCodeInput";
+            this.txtCodeInput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtCodeInput.Size = new System.Drawing.Size(760, 537);
+            this.txtCodeInput.TabIndex = 20;
+            this.txtCodeInput.Text = "";
+            this.txtCodeInput.TextChanged += new System.EventHandler(this.txtCodeInput_TextChanged_1);
+            // 
+            // txtCodeDisplay
+            // 
+            this.txtCodeDisplay.Font = new System.Drawing.Font("Cascadia Code", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodeDisplay.Location = new System.Drawing.Point(15, 247);
+            this.txtCodeDisplay.Name = "txtCodeDisplay";
+            this.txtCodeDisplay.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtCodeDisplay.Size = new System.Drawing.Size(454, 249);
+            this.txtCodeDisplay.TabIndex = 21;
+            this.txtCodeDisplay.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.txtCodeDisplay);
+            this.Controls.Add(this.txtCodeInput);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtScore);
@@ -223,13 +227,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnShowCode);
-            this.Controls.Add(this.txtCodeDisplay);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxProblems);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.btnRunCode);
-            this.Controls.Add(this.txtCodeInput);
             this.Controls.Add(this.txtProblemDescription);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -244,13 +246,11 @@
         }
 
         private System.Windows.Forms.TextBox txtProblemDescription;
-        private System.Windows.Forms.TextBox txtCodeInput;
         private System.Windows.Forms.Button btnRunCode;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.ComboBox comboBoxProblems;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodeDisplay;
         private System.Windows.Forms.Button btnShowCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -260,5 +260,7 @@
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox txtCodeInput;
+        private System.Windows.Forms.RichTextBox txtCodeDisplay;
     }
 }

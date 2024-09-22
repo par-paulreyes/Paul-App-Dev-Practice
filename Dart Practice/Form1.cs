@@ -10,7 +10,8 @@ namespace DartPracticeApp
     {
         private List<Problem> problems;
         private int score = 0;
-        private string selectedDifficulty = "All"; // To track selected difficulty level
+        private string selectedDifficulty = ""; // To track selected difficulty level
+        private SyntaxHighlighter syntaxHighlighter;
 
         public Form1()
         {
@@ -18,6 +19,7 @@ namespace DartPracticeApp
             InitializeProblems();
             InitializeDifficultyLevels(); // Initialize levels in ComboBox
             txtCodeDisplay.Visible = false;
+            syntaxHighlighter = new SyntaxHighlighter();
         }
 
         private void InitializeProblems()
@@ -44,10 +46,15 @@ namespace DartPracticeApp
             foreach (var problem in problems)
             {
                 // Add to ComboBox only if the problem matches the selected difficulty
-                if (selectedDifficulty == "All" || problem.DifficultyLevel == selectedDifficulty)
+                if (selectedDifficulty == "All")
                 {
                     comboBoxProblems.Items.Add(problem.GetProblem);
                 }
+                if (problem.DifficultyLevel == selectedDifficulty)
+                {
+                    comboBoxProblems.Items.Add(problem.GetProblem);
+                }
+
             }
 
             comboBoxProblems.SelectedIndex = comboBoxProblems.Items.Count > 0 ? 0 : -1; // Select first item if available
@@ -58,13 +65,15 @@ namespace DartPracticeApp
             txtProblemDescription.Clear();
             txtCodeDisplay.Clear();
             txtOutput.Clear();
+            txtCodeInput.Clear();
             if (comboBoxProblems.SelectedIndex != -1)
             {
                 var selectedProblem = problems[comboBoxProblems.SelectedIndex];
-                txtProblemDescription.Text = $"{selectedProblem.GetDescription} {Environment.NewLine}Expected Output: {selectedProblem.GetExpectedOutput}";
-                txtCodeDisplay.Text = selectedProblem.GetCode; // Update code display dynamically
+                txtProblemDescription.Text = $"Level: {selectedProblem.DifficultyLevel}{Environment.NewLine}{selectedProblem.GetDescription} {Environment.NewLine}Expected Output: {selectedProblem.GetExpectedOutput}";
+                DisplayProblemCode(selectedProblem); // This will apply the syntax highlighting
             }
         }
+
 
         private void btnRunCode_Click(object sender, EventArgs e)
         {
@@ -163,18 +172,20 @@ namespace DartPracticeApp
             txtCodeDisplay.Clear();
             txtOutput.Clear();
             selectedDifficulty = comboBoxLevel.SelectedItem.ToString(); // Get the selected difficulty level
-            PopulateProblemComboBox(); // Re-populate the ComboBox with problems of the selected difficulty
+            InitializeProblems(); // Re-populate the ComboBox with problems of the selected difficulty
         }
 
-        private void bntExit_Click(object sender, EventArgs e)
+
+        private void DisplayProblemCode(Problem selectedProblem)
         {
-            // Ask for confirmation before closing
-            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            txtCodeDisplay.Text = selectedProblem.GetCode;
+            SyntaxHighlighter syntaxHighlighter = new SyntaxHighlighter();
+            syntaxHighlighter.ApplySyntaxHighlighting(txtCodeDisplay);
         }
 
+        private void txtCodeInput_TextChanged_1(object sender, EventArgs e)
+        {
+            syntaxHighlighter.ApplySyntaxHighlighting(txtCodeInput);
+        }
     }
 }
